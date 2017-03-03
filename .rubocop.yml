@@ -1,0 +1,33 @@
+Metrics/LineLength:
+  Max: 120
+
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+
+# Prefer () for all strings/symbols, [] for all arrays and {} for regexes
+Style/PercentLiteralDelimiters:
+  PreferredDelimiters:
+    '%':  ()
+    '%i': []
+    '%I': []
+    '%q': ()
+    '%Q': ()
+    '%r': '{}'
+    '%s': ()
+    '%w': []
+    '%W': []
+    '%x': ()
+
+### Disabled
+
+Style/Documentation:
+  Enabled: false
+
+Style/WordArray:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Metrics/BlockLength:
+  Enabled: false
