@@ -16,3 +16,16 @@ bundle exec hanami db prepare
 HANAMI_ENV=test bundle exec hanami db prepare
 bundle exec rake test
 ```
+
+### Style
+
+RuboCop is being run as part of the default task:
+
+```
+bundle exec rake
+bundle exec rake style # Only run style checks
+```
+
+**Remember to run `rubocop --auto-correct` after running generators.** Hanami
+code generators don't follow the configured style, most notably they use
+_single quotes_.

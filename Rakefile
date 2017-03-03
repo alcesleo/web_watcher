@@ -1,6 +1,9 @@
 require "rake"
 require "hanami/rake_tasks"
 require "rake/testtask"
+require "rubocop/rake_task"
+
+task default: [:test, :style]
 
 Rake::TestTask.new do |t|
   t.pattern = "spec/**/*_spec.rb"
@@ -8,5 +11,8 @@ Rake::TestTask.new do |t|
   t.warning = false
 end
 
-task default: :test
 task spec: :test
+
+RuboCop::RakeTask.new(:style) do |t|
+  t.options = ["--display-cop-names"]
+end
