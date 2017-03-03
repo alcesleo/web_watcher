@@ -1,0 +1,4 @@
+project=web_watcher
+architecture=container
+test=minitest
+template=erb
