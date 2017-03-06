@@ -1,0 +1,28 @@
+<h2>Show watcher</h2>
+
+<table>
+  <tbody>
+    <tr>
+      <th>Description: </th>
+      <td><%= watcher.description %></td>
+    </tr>
+    <tr>
+      <th>URL: </th>
+      <td><%= link_to(watcher.url, watcher.url) %></td>
+    </tr>
+    <tr>
+      <th>Selector: </th>
+      <td><%= watcher.selector %></td>
+    </tr>
+    <tr>
+      <th>Email: </th>
+      <td><%= watcher.email %></td>
+    </tr>
+    <tr>
+      <th>Created at: </th>
+      <td><%= watcher.created_at %></td>
+    </tr>
+  </tbody>
+</table>
+
+<%= delete_button %>

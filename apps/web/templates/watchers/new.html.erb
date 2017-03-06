@@ -1,0 +1,29 @@
+<h2>Add watcher</h2>
+
+<%=
+  form_for :watcher, '/watchers' do
+    div class: 'input' do
+      label      :description
+      text_field :description
+    end
+
+    div class: 'input' do
+      label      "URL", for: :url
+      text_field :url
+    end
+
+    div class: 'input' do
+      label      :selector
+      text_field :selector
+    end
+
+    div class: 'input' do
+      label      :email
+      text_field :email
+    end
+
+    div class: 'controls' do
+      submit 'Create Watcher'
+    end
+  end
+%>
