@@ -29,6 +29,9 @@ Style/PercentLiteralDelimiters:
 Style/BlockDelimiters:
   EnforcedStyle: semantic
 
+Style/EndOfLine:
+  EnforcedStyle: lf
+
 ### Disabled
 
 Style/Documentation:
