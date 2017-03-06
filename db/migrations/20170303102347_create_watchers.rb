@@ -1,6 +1,6 @@
 Hanami::Model.migration do
-  change do
-    run 'CREATE EXTENSION "uuid-ossp"'
+  up do
+    run 'CREATE EXTENSION IF NOT EXISTS "uuid-ossp"'
 
     create_table :watchers do
       uuid :id, primary_key: true, default: Sequel.function(:uuid_generate_v4)
@@ -14,5 +14,11 @@ Hanami::Model.migration do
       column :created_at,  DateTime, null: false
       column :updated_at,  DateTime, null: false
     end
+  end
+
+  down do
+    run 'DROP EXTENSION IF EXISTS "uuid-ossp"'
+
+    drop_table :watchers
   end
 end
