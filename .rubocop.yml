@@ -6,6 +6,12 @@ Metrics/LineLength:
 Style/StringLiterals:
   EnforcedStyle: double_quotes
 
+Style/TrailingCommaInArguments:
+  EnforcedStyleForMultiline: comma
+
+Style/TrailingCommaInLiteral:
+  EnforcedStyleForMultiline: comma
+
 # Prefer () for all strings/symbols, [] for all arrays and {} for regexes
 Style/PercentLiteralDelimiters:
   PreferredDelimiters:
