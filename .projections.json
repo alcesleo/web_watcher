@@ -1,0 +1,15 @@
+{
+  "lib/web_watcher/*.rb": {
+    "alternate": "spec/{}_spec.rb"
+  },
+  "spec/web_watcher/*_spec.rb": {
+    "alternate": "lib/web_watcher{}.rb"
+  },
+  "apps/*.rb": {
+    "alternate": "spec/{}_spec.rb"
+  },
+  "spec/*_spec.rb": {
+    "alternate": "apps/{}.rb",
+    "command": "spec"
+  }
+}
