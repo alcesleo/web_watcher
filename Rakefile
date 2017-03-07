@@ -1,20 +1,22 @@
 require "rake"
 require "hanami/rake_tasks"
-require "rake/testtask"
-require "rubocop/rake_task"
 
-task default: [:test, :style]
+# Tasks only available for development/test
+unless ENV["HANAMI_ENV"] == "production"
+  require "rake/testtask"
+  require "rubocop/rake_task"
 
-Rake::TestTask.new do |t|
-  t.pattern = "spec/**/*_spec.rb"
-  t.libs << "spec"
-  t.warning = false
-end
+  task default: [:test, :style]
 
-task spec: :test
+  Rake::TestTask.new do |t|
+    t.pattern = "spec/**/*_spec.rb"
+    t.libs << "spec"
+    t.warning = false
+  end
 
-RuboCop::RakeTask.new(:style) do |t|
-  t.options = ["--display-cop-names"]
+  RuboCop::RakeTask.new(:style) do |t|
+    t.options = ["--display-cop-names"]
+  end
 end
 
 task refresh_watchers: :environment do
