@@ -5,7 +5,6 @@ describe Web::Controllers::Watchers::Show do
   let(:action) { Web::Controllers::Watchers::Show.new }
   let(:watcher) {
     WatcherRepository.new.create(
-      id: "c38e861a-0ba0-4f1c-8b11-75b26d387a1c",
       description: "Test description",
       url: "http://www.test.com",
       selector: "#message",
