@@ -1,3 +1,4 @@
+# Responsible for making one web request and saving the results given a Watcher
 class MakeRequest
   def self.call(watcher)
     response = HTTP.get(watcher.url)
