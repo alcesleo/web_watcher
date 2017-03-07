@@ -3,7 +3,7 @@
 <table>
   <tbody>
     <tr>
-      <th>Description: </th>
+      <td>Description: </th>
       <td><%= watcher.description %></td>
     </tr>
     <tr>
@@ -26,3 +26,22 @@
 </table>
 
 <%= delete_button %>
+
+<h3>Log</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Timestamp</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% requests.each do |request| %>
+      <tr>
+        <td><%= request.created_at %></td>
+        <td><%= request.value %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
