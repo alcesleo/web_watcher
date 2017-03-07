@@ -7,7 +7,7 @@ Hanami::Model.migration do
 
       column :value,       String,   null: false
       column :status_code, Integer,  null: false
-      column :created_at,  DateTime, null: false
+      column :created_at,  DateTime, null: false, default: Sequel.lit("CURRENT_TIMESTAMP")
     end
   end
 end
