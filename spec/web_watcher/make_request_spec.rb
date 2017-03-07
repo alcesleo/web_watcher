@@ -9,7 +9,7 @@ describe MakeRequest do
       email: "test@email.com",
     )
   }
-  let(:response_body) { '<div><br><br /><span id="message">test target</span></div>' }
+  let(:response_body) { %(<div><br><br /><span id="message">\n\ntest target\n\n</span></div>) }
 
   before do
     stub_request(:get, watcher.url).to_return(status: 200, body: response_body)
