@@ -17,8 +17,7 @@ Hanami::Model.migration do
   end
 
   down do
-    run 'DROP EXTENSION IF EXISTS "uuid-ossp"'
-
     drop_table :watchers
+    run 'DROP EXTENSION IF EXISTS "uuid-ossp"'
   end
 end
