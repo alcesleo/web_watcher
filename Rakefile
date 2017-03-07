@@ -16,3 +16,7 @@ task spec: :test
 RuboCop::RakeTask.new(:style) do |t|
   t.options = ["--display-cop-names"]
 end
+
+task refresh_watchers: :environment do
+  Refresh.call
+end
