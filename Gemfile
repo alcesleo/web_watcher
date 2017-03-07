@@ -1,5 +1,7 @@
 source "https://rubygems.org"
 
+ruby "~> 2.3.1"
+
 gem "hanami",       "1.0.0.beta2"
 gem "hanami-model", "~> 1.0.0.beta2"
 gem "rake", "~> 12.0"
