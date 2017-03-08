@@ -29,10 +29,13 @@ describe Web::Controllers::Watchers::Refresh do
   end
 
   it "makes a new request" do
-    RequestRepository.new.requests.count.must_equal 0
+    fake_call = Minitest::Mock.new
+    fake_call.expect :call, nil, [watcher]
 
-    action.call(params)
+    MakeRequest.stub :call, fake_call do
+      action.call(params)
+    end
 
-    RequestRepository.new.requests.count.must_equal 1
+    fake_call.verify
   end
 end
