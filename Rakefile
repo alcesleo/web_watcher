@@ -2,7 +2,7 @@ require "rake"
 require "hanami/rake_tasks"
 
 # Tasks only available for development/test
-unless ENV["HANAMI_ENV"] == "production"
+unless ENV["RACK_ENV"] == "production"
   require "rake/testtask"
   require "rubocop/rake_task"
 
