@@ -6,14 +6,27 @@ receive an email when the contents of that element changes.
 ## Development
 
 ```sh
+# Install Postgres
+brew cask install postgres
+
+# Install Gem dependencies
+gem install bundler
 bundle
+
+# Create and migrate the database
 bundle exec hanami db prepare
+
+# Run checks
+bundle exec rake
 ```
 
 ### Tests
 
 ```sh
+# Create and migrate the test database
 HANAMI_ENV=test bundle exec hanami db prepare
+
+# Run the tests
 bundle exec rake test
 ```
 
