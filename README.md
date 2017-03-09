@@ -36,10 +36,15 @@ RuboCop is being run as part of the default task:
 
 ```sh
 bundle exec rake
-bundle exec rake style # Only run style checks
+
+# Only run style checks
+bundle exec rake style
+
+# Try to fix style offenses
+bundle exec rake style:auto_correct
 ```
 
-**Remember to run `rubocop --auto-correct` after running generators.** Hanami
+**Remember to run `bundle exec rake style:auto_correct` after running generators.** Hanami
 code generators don't follow the configured style, most notably they use
 _single quotes_.
 
