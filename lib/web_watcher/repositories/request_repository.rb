@@ -3,6 +3,5 @@ class RequestRepository < Hanami::Repository
     requests
       .where(watcher_id: watcher.id)
       .order(Sequel.desc(:created_at))
-      .to_a
   end
 end

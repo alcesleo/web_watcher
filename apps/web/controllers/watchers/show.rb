@@ -10,7 +10,7 @@ module Web::Controllers::Watchers
       @watcher = WatcherRepository.new.find(params[:id])
       not_found if @watcher.nil?
 
-      @requests = RequestRepository.new.find_by_watcher(@watcher)
+      @requests = RequestRepository.new.find_by_watcher(@watcher).to_a
     rescue Hanami::Model::Error => e
       raise if e.message !~ /invalid input syntax for uuid/
       not_found
