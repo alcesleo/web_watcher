@@ -2,16 +2,9 @@ require "spec_helper"
 require_relative "../../../../apps/web/controllers/watchers/refresh"
 
 describe Web::Controllers::Watchers::Refresh do
-  let(:action) { Web::Controllers::Watchers::Refresh.new }
-  let(:watcher) {
-    WatcherRepository.new.create(
-      description: "Test description",
-      url: "http://www.test.com",
-      selector: "#message",
-      email: "test@email.com",
-    )
-  }
-  let(:params) { Hash[id: watcher.id] }
+  let(:action)        { Web::Controllers::Watchers::Refresh.new }
+  let(:watcher)       { Fabricate.create(:watcher) }
+  let(:params)        { Hash[id: watcher.id] }
   let(:response_body) { %(<div><br><br /><span id="message">\n\ntest target\n\n</span></div>) }
 
   before do
@@ -29,13 +22,8 @@ describe Web::Controllers::Watchers::Refresh do
   end
 
   it "makes a new request" do
-    fake_call = Minitest::Mock.new
-    fake_call.expect :call, nil, [watcher]
+    MakeRequest.expects(:call).with(watcher)
 
-    MakeRequest.stub :call, fake_call do
-      action.call(params)
-    end
-
-    fake_call.verify
+    action.call(params)
   end
 end

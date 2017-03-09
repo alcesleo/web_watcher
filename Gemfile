@@ -23,9 +23,12 @@ group :test, :development do
 end
 
 group :test do
-  gem "capybara", "~> 2.12"
-  gem "minitest", "~> 5.10"
-  gem "webmock",  "~> 2.3"
+  gem "capybara",           "~> 2.12"
+  gem "faker",              "~> 1.7"
+  gem "hanami-fabrication", "~> 0.1"
+  gem "minitest",           "~> 5.10"
+  gem "mocha",              "~> 1.2"
+  gem "webmock",            "~> 2.3"
 end
 
 group :production do

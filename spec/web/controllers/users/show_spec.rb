@@ -6,26 +6,13 @@ describe Web::Controllers::Users::Show do
   let(:params) { Hash[email: email] }
 
   let(:email) { "test@email.com" }
-
   let(:watchers) {
-    Array.new(2) { |n|
-      WatcherRepository.new.create(
-        description: "Test description #{n}",
-        url: "http://www.test.com",
-        selector: "#message",
-        email: email,
-      )
-    }
+    [
+      Fabricate.create(:watcher, email: email),
+      Fabricate.create(:watcher, email: email),
+    ]
   }
-
-  let(:other_watcher) {
-    WatcherRepository.new.create(
-      description: "Other description",
-      url: "http://www.other.com",
-      selector: "#other",
-      email: "other@email.com",
-    )
-  }
+  let(:other_watcher) { Fabricate.create(:watcher) }
 
   before do
     WatcherRepository.new.clear

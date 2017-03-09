@@ -1,20 +1,13 @@
 require "spec_helper"
 
 describe MakeRequest do
-  let(:watcher) {
-    WatcherRepository.new.create(
-      description: "Test description",
-      url: "http://www.test.com",
-      selector: "#message",
-      email: "test@email.com",
-    )
-  }
+  let(:watcher)       { Fabricate.create(:watcher) }
   let(:response_body) { %(<div><br><br /><span id="message">\n\ntest target\n\n</span></div>) }
 
   before do
-    stub_request(:get, watcher.url).to_return(status: 200, body: response_body)
-
     RequestRepository.new.clear
+
+    stub_request(:get, watcher.url).to_return(status: 200, body: response_body)
   end
 
   it "makes a web request given a Watcher" do

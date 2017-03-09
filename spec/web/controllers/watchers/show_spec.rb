@@ -3,27 +3,13 @@ require_relative "../../../../apps/web/controllers/watchers/show"
 
 describe Web::Controllers::Watchers::Show do
   let(:action) { Web::Controllers::Watchers::Show.new }
-  let(:watcher) {
-    WatcherRepository.new.create(
-      description: "Test description",
-      url: "http://www.test.com",
-      selector: "#message",
-      email: "test@email.com",
-    )
-  }
-  let(:other_watcher) {
-    WatcherRepository.new.create(
-      description: "Other description",
-      url: "http://www.other.com",
-      selector: "#other",
-      email: "other@email.com",
-    )
-  }
-  let(:request1)      { RequestRepository.new.create(watcher_id: watcher.id, status_code: 200, value: "one") }
-  let(:request2)      { RequestRepository.new.create(watcher_id: watcher.id, status_code: 200, value: "two") }
-  let(:other_request) { RequestRepository.new.create(watcher_id: other_watcher.id, status_code: 200, value: "other") }
-
   let(:params) { Hash[id: watcher.id] }
+
+  let(:watcher)       { Fabricate.create(:watcher) }
+  let(:other_watcher) { Fabricate.create(:watcher) }
+  let(:request1)      { Fabricate.create(:request, watcher_id: watcher.id) }
+  let(:request2)      { Fabricate.create(:request, watcher_id: watcher.id) }
+  let(:other_request) { Fabricate.create(:request, watcher_id: other_watcher.id) }
 
   before do
     WatcherRepository.new.clear

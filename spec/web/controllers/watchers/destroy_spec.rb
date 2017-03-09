@@ -2,16 +2,9 @@ require "spec_helper"
 require_relative "../../../../apps/web/controllers/watchers/destroy"
 
 describe Web::Controllers::Watchers::Destroy do
-  let(:action) { Web::Controllers::Watchers::Destroy.new }
-  let(:watcher) {
-    WatcherRepository.new.create(
-      description: "Test description",
-      url: "http://www.test.com",
-      selector: "#message",
-      email: "test@email.com",
-    )
-  }
-  let(:params) { Hash[id: watcher.id] }
+  let(:action)  { Web::Controllers::Watchers::Destroy.new }
+  let(:watcher) { Fabricate.create(:watcher) }
+  let(:params)  { Hash[id: watcher.id] }
 
   before do
     WatcherRepository.new.clear

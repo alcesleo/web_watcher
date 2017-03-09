@@ -28,6 +28,8 @@ Style/PercentLiteralDelimiters:
 
 Style/BlockDelimiters:
   EnforcedStyle: semantic
+  Exclude:
+    - "spec/support/factories.rb"
 
 ### Disabled
 
