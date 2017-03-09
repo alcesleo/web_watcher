@@ -10,4 +10,11 @@ class WatcherRepository < Hanami::Repository
       .where(email: email)
       .order(:description)
   end
+
+  def find(*args)
+    super
+  rescue Hanami::Model::Error => e
+    raise if e.message !~ /invalid input syntax for uuid/
+    nil
+  end
 end

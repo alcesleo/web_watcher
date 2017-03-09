@@ -19,4 +19,8 @@ describe WatcherRepository do
   it "finds watchers by email" do
     subject.find_by_email(email).to_a.must_equal [@watcher3, @watcher1]
   end
+
+  it "returns nil when given an invalid UUID" do
+    subject.find("nonexistent").must_be_nil
+  end
 end
