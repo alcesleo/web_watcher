@@ -1,6 +1,6 @@
 {
   "lib/web_watcher/*.rb": {
-    "alternate": "spec/{}_spec.rb"
+    "alternate": "spec/web_watcher/{}_spec.rb"
   },
   "spec/web_watcher/*_spec.rb": {
     "alternate": "lib/web_watcher/{}.rb"
