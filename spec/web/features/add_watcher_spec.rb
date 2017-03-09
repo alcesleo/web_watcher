@@ -19,7 +19,7 @@ describe "Add a watcher" do
       click_button "Create"
     end
 
-    created_watcher_id = WatcherRepository.new.last.id
-    current_path.must_equal("/watchers/#{created_watcher_id}")
+    created_watcher = WatcherRepository.new.last
+    current_path.must_equal("/watchers/#{created_watcher.id}")
   end
 end
