@@ -2,8 +2,8 @@ source "https://rubygems.org"
 
 ruby "~> 2.3.1"
 
-gem "hanami",       "1.0.0.beta2"
-gem "hanami-model", "~> 1.0.0.beta2"
+gem "hanami",       "1.0.0.beta3"
+gem "hanami-model", "~> 1.0.0.beta3"
 gem "rake", "~> 12.0"
 
 gem "http", "~> 2.2.1"
