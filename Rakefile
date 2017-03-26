@@ -19,5 +19,5 @@ unless ENV["RACK_ENV"] == "production"
 end
 
 task refresh_watchers: :environment do
-  Refresh.call
+  Refresher.call
 end
