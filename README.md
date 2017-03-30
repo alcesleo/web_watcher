@@ -66,14 +66,12 @@ git push heroku master
 
 ### Environment variables
 
-For now this is set up to use a simple GMail account:
-
 ```
-EMAIL_ADDRESS="theemail@gmail.com"
-EMAIL_PASSWORD="thepassword"
-SMTP_HOST="smtp.gmail.com"
-SMTP_PORT=587
-HOST_ADDRESS="http://alcesleo-web-watcher.herokuapp.com"
+heroku config:set EMAIL_ADDRESS="theemail@gmail.com"
+heroku config:set EMAIL_PASSWORD="thepassword"
+heroku config:set SMTP_HOST="smtp.gmail.com"
+heroku config:set SMTP_PORT=587
+heroku config:set HOST_ADDRESS="http://alcesleo-web-watcher.herokuapp.com"
 ```
 
 ### Troubleshooting
