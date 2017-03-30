@@ -73,6 +73,7 @@ EMAIL_ADDRESS="theemail@gmail.com"
 EMAIL_PASSWORD="thepassword"
 SMTP_HOST="smtp.gmail.com"
 SMTP_PORT=587
+HOST_ADDRESS="http://alcesleo-web-watcher.herokuapp.com"
 ```
 
 ### Troubleshooting
