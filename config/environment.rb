@@ -37,6 +37,10 @@ Hanami.configure do
   environment :development do
     # See: http://hanamirb.org/guides/projects/logging
     logger level: :debug
+
+    mailer do
+      delivery LetterOpener::DeliveryMethod, location: File.expand_path("../../tmp/letter_opener", __FILE__)
+    end
   end
 
   environment :production do

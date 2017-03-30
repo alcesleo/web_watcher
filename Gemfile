@@ -13,6 +13,7 @@ gem "pg",   "~> 0.19"
 group :development do
   # Code reloading
   # See: http://hanamirb.org/guides/projects/code-reloading
+  gem "letter_opener", "~> 1.4.1"
   gem "shotgun", "~> 0.9"
 end
 
