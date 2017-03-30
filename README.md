@@ -50,18 +50,23 @@ _single quotes_.
 
 ## Deployment
 
+This will deploy the app on Heroku and can be tried here: https://alcesleo-web-watcher.herokuapp.com/watchers/new
+
 ```sh
 brew install heroku
 heroku login
 
 # If creating a new Heroku app
-heroku create
+heroku create alcesleo-web-watcher
 
 # If connecting to an existing Heroku app
 heroku git:remote -a alcesleo-web-watcher
 
 # Deploy
 git push heroku master
+
+# Run database migrations
+heroku run hanami db migrate
 ```
 
 ### Environment variables
@@ -73,6 +78,10 @@ heroku config:set SMTP_HOST="smtp.gmail.com"
 heroku config:set SMTP_PORT=587
 heroku config:set HOST_ADDRESS="http://alcesleo-web-watcher.herokuapp.com"
 ```
+
+### Periodic updates
+
+Configure the Heroku Scheduler Add-on to call `rake refresh_and_notify`.
 
 ### Troubleshooting
 
