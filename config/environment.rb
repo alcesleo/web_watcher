@@ -44,7 +44,7 @@ Hanami.configure do
   end
 
   environment :production do
-    logger level: :info, formatter: :json
+    logger level: :info
 
     mailer do
       options = {
