@@ -18,6 +18,12 @@ unless ENV["RACK_ENV"] == "production"
   task default: [:test, :style]
 end
 
-task refresh_watchers: :environment do
+task refresh: :environment do
   Refresher.call
 end
+
+task notify: :environment do
+  Notifier.call
+end
+
+task refresh_and_notify: %i[refresh notify]

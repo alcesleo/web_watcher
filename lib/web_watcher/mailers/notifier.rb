@@ -12,7 +12,7 @@ class Mailers::Notifier
   end
 
   def from
-    ENV.fetch("FROM_EMAIL")
+    ENV.fetch("EMAIL_ADDRESS")
   end
 
   def subject

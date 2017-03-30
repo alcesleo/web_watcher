@@ -1,3 +1,20 @@
+GIT
+  remote: git://github.com/hanami/hanami.git
+  revision: 9e6fc5a36a6e0a5453c8ca91e3c1984a46f898b5
+  specs:
+    hanami (1.0.0.beta3)
+      bundler (~> 1.13)
+      concurrent-ruby (~> 1.0)
+      hanami-assets (~> 1.0.0.beta2)
+      hanami-controller (~> 1.0.0.beta3)
+      hanami-helpers (~> 1.0.0.beta2)
+      hanami-mailer (~> 1.0.0.beta2)
+      hanami-router (~> 1.0.0.beta3)
+      hanami-utils (~> 1.0.0.beta3)
+      hanami-validations (~> 1.0.0.beta2)
+      hanami-view (~> 1.0.0.beta2)
+      thor (~> 0.19)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -55,18 +72,6 @@ GEM
     fabrication (2.16.1)
     faker (1.7.3)
       i18n (~> 0.5)
-    hanami (1.0.0.beta3)
-      bundler (~> 1.13)
-      concurrent-ruby (~> 1.0)
-      hanami-assets (~> 1.0.0.beta2)
-      hanami-controller (~> 1.0.0.beta3)
-      hanami-helpers (~> 1.0.0.beta2)
-      hanami-mailer (~> 1.0.0.beta2)
-      hanami-router (~> 1.0.0.beta3)
-      hanami-utils (~> 1.0.0.beta3)
-      hanami-validations (~> 1.0.0.beta2)
-      hanami-view (~> 1.0.0.beta2)
-      thor (~> 0.19)
     hanami-assets (1.0.0.beta2)
       hanami-helpers (~> 1.0.0.beta1)
       hanami-utils (~> 1.0.0.beta1)
@@ -207,7 +212,7 @@ DEPENDENCIES
   capybara (~> 2.12)
   dotenv (~> 2.2)
   faker (~> 1.7)
-  hanami (= 1.0.0.beta3)
+  hanami!
   hanami-fabrication (~> 0.1)
   hanami-model (~> 1.0.0.beta3)
   http (~> 2.2.1)

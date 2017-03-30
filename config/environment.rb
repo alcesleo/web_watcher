@@ -43,7 +43,16 @@ Hanami.configure do
     logger level: :info, formatter: :json
 
     mailer do
-      delivery :smtp, address: ENV["SMTP_HOST"], port: ENV["SMTP_PORT"]
+      options = {
+        address:              ENV.fetch("SMTP_HOST"),
+        port:                 ENV.fetch("SMTP_PORT"),
+        user_name:            ENV.fetch("EMAIL_ADDRESS"),
+        password:             ENV.fetch("EMAIL_PASSWORD"),
+        authentication:       "plain",
+        enable_starttls_auto: true,
+      }
+
+      delivery :smtp, options
     end
   end
 end

@@ -7,9 +7,7 @@ Style/ClassAndModuleChildren:
   Enabled: false
 
 Metrics/BlockLength:
-  Exclude:
-    - "**/*_spec.rb"
-    - "apps/web/application.rb"
+  Enabled: false
 
 Style/BlockDelimiters:
   Exclude:

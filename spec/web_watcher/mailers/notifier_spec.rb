@@ -9,7 +9,7 @@ describe Mailers::Notifier do
   subject { Mailers::Notifier.deliver(watcher: watcher, request1: first_request, request2: second_request) }
 
   before do
-    ENV.stubs(:fetch).with("FROM_EMAIL").returns(from_email)
+    ENV.stubs(:fetch).with("EMAIL_ADDRESS").returns(from_email)
   end
 
   it "delivers email" do

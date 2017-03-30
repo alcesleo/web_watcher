@@ -64,6 +64,17 @@ heroku git:remote -a alcesleo-web-watcher
 git push heroku master
 ```
 
+### Environment variables
+
+For now this is set up to use a simple GMail account:
+
+```
+EMAIL_ADDRESS="theemail@gmail.com"
+EMAIL_PASSWORD="thepassword"
+SMTP_HOST="smtp.gmail.com"
+SMTP_PORT=587
+```
+
 ### Troubleshooting
 
 `<Hanami::Assets::MissingManifestFileError: Can't read manifest: /app/public/assets.json>`
