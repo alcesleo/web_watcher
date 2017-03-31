@@ -2,19 +2,17 @@ source "https://rubygems.org"
 
 ruby "~> 2.3.1"
 
-gem "hanami",       github: "hanami/hanami"
-gem "hanami-model", "~> 1.0.0.beta3"
-gem "rake", "~> 12.0"
+gem "hanami",       "~> 1.0.0.rc1"
+gem "hanami-model", "~> 1.0.0.rc1"
 
 gem "http", "~> 2.2.1"
 gem "oga",  "~> 2.9"
 gem "pg",   "~> 0.19"
+gem "rake", "~> 12.0"
 
 group :development do
-  # Code reloading
-  # See: http://hanamirb.org/guides/projects/code-reloading
   gem "letter_opener", "~> 1.4.1"
-  gem "shotgun", "~> 0.9"
+  gem "shotgun",       "~> 0.9"
 end
 
 group :test, :development do
