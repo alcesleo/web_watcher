@@ -13,7 +13,7 @@ unless ENV["RACK_ENV"] == "production"
   require "rubocop/rake_task"
   RuboCop::RakeTask.new(:style)
 
-  task default: [:test, :style]
+  task default: %i[test style]
 end
 
 task refresh: :environment do
