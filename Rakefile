@@ -11,9 +11,7 @@ unless ENV["RACK_ENV"] == "production"
   end
 
   require "rubocop/rake_task"
-  RuboCop::RakeTask.new(:style) do |t|
-    t.options = ["--display-cop-names"]
-  end
+  RuboCop::RakeTask.new(:style)
 
   task default: [:test, :style]
 end
