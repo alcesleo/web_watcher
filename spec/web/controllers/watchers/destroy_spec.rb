@@ -18,7 +18,7 @@ describe Web::Controllers::Watchers::Destroy do
     response = action.call(params)
 
     response[0].must_equal 302
-    response[1]["Location"].must_equal "/watchers/new"
+    response[1]["Location"].must_equal "/users/#{watcher.email}"
   end
 
   it "deletes the watcher" do
