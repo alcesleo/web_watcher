@@ -18,6 +18,9 @@ bundle exec hanami db prepare
 
 # Run checks
 bundle exec rake
+
+# Start the development server
+bundle exec hanami server
 ```
 
 ### Tests
