@@ -16,7 +16,7 @@
     </tr>
     <tr>
       <th>Email: </th>
-      <td><%= watcher.email %></td>
+      <td><%= link_to(watcher.email, routes.user_path(watcher.email)) %></td>
     </tr>
     <tr>
       <th>Created at: </th>
