@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-ruby "~> 2.3.1"
+ruby ">= 2.3.1"
 
 gem "hanami",       "~> 1.0.0.rc1"
 gem "hanami-model", "~> 1.0.0.rc1"
