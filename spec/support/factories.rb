@@ -1,7 +1,7 @@
 Fabricator(:watcher) do
   description "Test description"
   url         "http://www.test.com"
-  selector    "#message"
+  selector    "#selector"
   email       Faker::Internet.email
 end
 

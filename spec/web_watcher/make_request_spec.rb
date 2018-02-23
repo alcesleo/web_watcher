@@ -1,7 +1,7 @@
 require "spec_helper"
 
 describe MakeRequest do
-  let(:watcher)       { Fabricate.create(:watcher) }
+  let(:watcher)       { Fabricate.create(:watcher, selector: "#message") }
   let(:response_body) { %(<div><br><br /><span id="message">\n\ntest target\n\n</span></div>) }
 
   before do
