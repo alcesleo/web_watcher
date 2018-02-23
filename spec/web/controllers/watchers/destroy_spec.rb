@@ -11,17 +11,27 @@ describe Web::Controllers::Watchers::Destroy do
     WatcherRepository.new.clear
 
     watcher
-    other_watcher
   end
 
-  it "redirects to the /users path" do
+  it "redirects to the user_path if other watchers exist" do
+    other_watcher
+
     response = action.call(params)
 
     response[0].must_equal 302
     response[1]["Location"].must_equal "/users/#{watcher.email}"
   end
 
+  it "redirects to the new_path if no other watchers exist" do
+    response = action.call(params)
+
+    response[0].must_equal 302
+    response[1]["Location"].must_equal "/watchers/new"
+  end
+
   it "deletes the watcher" do
+    other_watcher
+
     WatcherRepository.new.watchers.count.must_equal 2
 
     action.call(params)
