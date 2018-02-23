@@ -3,7 +3,7 @@ module Web::Controllers::Watchers
     include Web::Action
 
     def call(params)
-      WatcherRepository.new.delete(id: params[:id])
+      WatcherRepository.new.delete(params[:id])
 
       redirect_to routes.new_watcher_path
     end

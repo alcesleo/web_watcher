@@ -4,11 +4,14 @@ require_relative "../../../../apps/web/controllers/watchers/destroy"
 describe Web::Controllers::Watchers::Destroy do
   let(:action)  { Web::Controllers::Watchers::Destroy.new }
   let(:watcher) { Fabricate.create(:watcher) }
+  let(:other_watcher) { Fabricate.create(:watcher) }
   let(:params)  { Hash[id: watcher.id] }
 
   before do
     WatcherRepository.new.clear
+
     watcher
+    other_watcher
   end
 
   it "redirects to the new_path" do
@@ -19,10 +22,10 @@ describe Web::Controllers::Watchers::Destroy do
   end
 
   it "deletes the watcher" do
-    WatcherRepository.new.watchers.count.must_equal 1
+    WatcherRepository.new.watchers.count.must_equal 2
 
     action.call(params)
 
-    WatcherRepository.new.watchers.count.must_equal 0
+    WatcherRepository.new.watchers.count.must_equal 1
   end
 end
