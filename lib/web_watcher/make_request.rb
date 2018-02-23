@@ -25,10 +25,14 @@ class MakeRequest
   end
 
   def parsed_response
-    Oga.parse_html(response.body.to_s)
+    Oga.parse_html(response_body)
   end
 
   def response
     @_response ||= HTTP.get(watcher.url)
+  end
+
+  def response_body
+    response.body.to_s.force_encoding("UTF-8")
   end
 end
