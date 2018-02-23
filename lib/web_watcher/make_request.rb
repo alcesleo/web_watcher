@@ -9,10 +9,6 @@ class MakeRequest
   end
 
   def call
-    response = HTTP.get(watcher.url)
-
-    selected_contents = Oga.parse_html(response.body.to_s).css(watcher.selector).text.strip
-
     RequestRepository.new.create(
       value: selected_contents,
       status_code: response.status.code,
@@ -23,4 +19,16 @@ class MakeRequest
   private
 
   attr_reader :watcher
+
+  def selected_contents
+    parsed_response.css(watcher.selector).text.strip
+  end
+
+  def parsed_response
+    Oga.parse_html(response.body.to_s)
+  end
+
+  def response
+    @_response ||= HTTP.get(watcher.url)
+  end
 end
