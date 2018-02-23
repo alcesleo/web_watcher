@@ -8,7 +8,7 @@ module Web::Controllers::Users
       @email = params[:email]
       @watchers = WatcherRepository.new.find_by_email(@email).to_a
 
-      halt 404 if @watchers.empty?
+      redirect_to routes.new_watcher_path if @watchers.empty?
     end
   end
 end

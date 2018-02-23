@@ -8,11 +8,7 @@ module Web::Controllers::Watchers
 
       repo.delete(watcher.id)
 
-      if repo.find_by_email(watcher.email).to_a.empty?
-        redirect_to routes.new_watcher_path
-      else
-        redirect_to routes.user_path(watcher.email)
-      end
+      redirect_to routes.user_path(watcher.email)
     end
   end
 end

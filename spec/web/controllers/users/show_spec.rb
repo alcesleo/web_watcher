@@ -38,8 +38,9 @@ describe Web::Controllers::Users::Show do
     action.email.must_equal email
   end
 
-  it "returns 404 if no watchers exist for that email" do
+  it "redirects to new if no watchers exist for that email" do
     response = action.call(email: "not_present@email.com")
-    response[0].must_equal 404
+    response[0].must_equal 302
+    response[1]["Location"].must_equal "/watchers/new"
   end
 end
