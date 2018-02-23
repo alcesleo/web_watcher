@@ -14,7 +14,7 @@ describe Web::Controllers::Watchers::Destroy do
     other_watcher
   end
 
-  it "redirects to the new_path" do
+  it "redirects to the /users path" do
     response = action.call(params)
 
     response[0].must_equal 302
