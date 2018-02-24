@@ -25,8 +25,9 @@ describe Notifier do
     Fabricate.create(:request, watcher_id: inactive_watcher.id)
 
     # Request that has failed
-    Fabricate.create(:request, watcher_id: unreliable_watcher.id, value: "same")
+    @request3 = Fabricate.create(:request, watcher_id: unreliable_watcher.id, value: "same")
     Fabricate.create(:request, watcher_id: unreliable_watcher.id, value: "", status_code: 500)
+    @request4 = Fabricate.create(:request, watcher_id: unreliable_watcher.id, value: "different")
   end
 
   it "sends a notification email with the new change" do
@@ -34,6 +35,12 @@ describe Notifier do
       watcher: watcher_with_new_change,
       request1: @request1,
       request2: @request2,
+    )
+
+    Mailers::Notifier.expects(:deliver).with(
+      watcher: unreliable_watcher,
+      request1: @request3,
+      request2: @request4,
     )
 
     Notifier.call
