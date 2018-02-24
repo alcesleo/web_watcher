@@ -29,7 +29,15 @@ class MakeRequest
   end
 
   def response
-    @_response ||= HTTP.get(watcher.url)
+    @_response ||= begin
+                     # Try twice. If the second request fails too, then oh well.
+                     first_response = HTTP.get(watcher.url)
+                     if first_response.status == 500
+                       HTTP.get(watcher.url)
+                     else
+                       first_response
+                     end
+                   end
   end
 
   def response_body
