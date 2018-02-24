@@ -24,4 +24,5 @@ task notify: :environment do
   Notifier.call
 end
 
+desc "Make requests and send notification emails"
 task refresh_and_notify: %i[refresh notify]
