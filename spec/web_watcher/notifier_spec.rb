@@ -4,6 +4,7 @@ describe Notifier do
   let(:watcher_with_new_change) { Fabricate.create(:watcher) }
   let(:watcher_with_old_change) { Fabricate.create(:watcher) }
   let(:inactive_watcher)        { Fabricate.create(:watcher, active: false) }
+  let(:unreliable_watcher)      { Fabricate.create(:watcher) }
 
   before do
     WatcherRepository.new.clear
@@ -22,6 +23,10 @@ describe Notifier do
     # Requests with inactive watcher
     Fabricate.create(:request, watcher_id: inactive_watcher.id)
     Fabricate.create(:request, watcher_id: inactive_watcher.id)
+
+    # Request that has failed
+    Fabricate.create(:request, watcher_id: unreliable_watcher.id, value: "same")
+    Fabricate.create(:request, watcher_id: unreliable_watcher.id, value: "", status_code: 500)
   end
 
   it "sends a notification email with the new change" do
