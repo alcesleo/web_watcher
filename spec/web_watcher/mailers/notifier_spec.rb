@@ -18,7 +18,8 @@ describe Mailers::Notifier do
     subject.to.must_equal      [watcher.email]
     subject.subject.must_equal "Watcher '#{watcher.description}' has detected a change"
 
-    email_body.must_include "Value changed from \"#{first_request.value}\" to \"#{second_request.value}\""
+    email_body.must_include "\"#{first_request.value}\""
+    email_body.must_include "\"#{second_request.value}\""
     email_body.must_include "The change took place between #{first_request.created_at} and #{second_request.created_at}"
     email_body.must_include "testhost.com#{Web.routes.watcher_path(watcher.id)}"
   end
